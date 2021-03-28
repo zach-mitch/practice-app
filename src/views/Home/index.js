@@ -36,6 +36,9 @@ const Business = () => {
                         <Typography>Test</Typography>
                     </>
                 }
+                <Typography>
+                    testing
+                </Typography>
             </Box>
             <Footer />
         </>
