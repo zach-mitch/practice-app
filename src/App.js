@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { lazy, Suspense } from 'react';
+// import { withAuthenticationRequired } from "@auth0/auth0-react";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
+import custom from './theme';
+import Skeleton from './components/WaitSkeleton';
 
-function App() {
+const Home = lazy(() => import('./views/Home'));
+
+let theme = createMuiTheme(custom);
+theme = responsiveFontSizes(theme);
+
+
+const App = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Router>
+        <Switch>
+          <Suspense fallback={<Skeleton variant="default" />}>
+            <Route exact path="/" component={Home} />
+          </Suspense>
+        </Switch>
+      </Router>
+    </ThemeProvider>
   );
 }
 
