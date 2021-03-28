@@ -1,7 +1,7 @@
 
 // https://material.io/resources/color/
 export const color = {
-    darkBlue: '#10327F',
+    darkBlue: '#10427F',
     blue: '#2F76DF',
     lightBlue: '#F8FAFD',
     white: '#FFFFFF',
