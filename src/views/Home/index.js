@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
 import IconButton from '@material-ui/core/IconButton';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
 import { Home } from '../../components/Icons/Home';
 
+
+import { SetView } from '../../components/SetView'
 import { Header } from '../../components/Layout/Header'
 import { Footer } from '../../components/Layout/Footer'
 import Card from '../../components/Card'
@@ -30,7 +31,6 @@ const useStyles = makeStyles(theme => ({
 const Business = () => {
     const classes = useStyles();
     const [view, setView] = useState('false');
-    const [more, setMore] = useState('1');
 
     return (
         <>
@@ -38,8 +38,6 @@ const Business = () => {
             <Box justifyContent="center" className={classes.root} >
                 {view === ('false') &&
                     <IconButton onClick={() => setView('true')}><Home className={classes.icon} /></IconButton>
-
-
                 }
                 {view === ('true') &&
                     <>
@@ -53,23 +51,7 @@ const Business = () => {
                     testing
                 </Typography>
                 <Card Heading1="Can you see me?!" />
-                <ButtonGroup color="primary" aria-label="outlined primary button group">
-                    <Button variant={more === '1' ? 'contained' : ''}
-                        color={more === '1' ? 'primary' : ''} onClick={() => setMore('1')}>One</Button>
-                    <Button variant={more === '2' ? 'contained' : ''}
-                        color={more === '2' ? 'primary' : ''} onClick={() => setMore('2')}>Two</Button>
-                    <Button variant={more === '3' ? 'contained' : ''}
-                        color={more === '3' ? 'primary' : ''} onClick={() => setMore('3')}>Three</Button>
-                </ButtonGroup>
-                {more === ('1') &&
-                    <Typography variant="h1">View 1</Typography>
-                }
-                {more === ('2') &&
-                    <Typography variant="h1">View 2</Typography>
-                }
-                {more === ('3') &&
-                    <Typography variant="h1">View 3</Typography>
-                }
+                <SetView setView1="First Item" setView2="Second Item" setView3="Third Item" item1="item 1" item2="item 2" item3="item 3" />
             </Box>
             <Footer />
         </>
