@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
-import Typography from '@material-ui/core/Typography';
 
 
 export const SetView = ({ setView1, setView2, setView3, item1, item2, item3 }) => {
@@ -20,15 +19,15 @@ export const SetView = ({ setView1, setView2, setView3, item1, item2, item3 }) =
             </ButtonGroup>
             {
                 more === ('1') &&
-                <Typography variant="h1">{item1}</Typography>
+                <>{item1}</>
             }
             {
                 more === ('2') &&
-                <Typography variant="h1">{item2}</Typography>
+                <>{item2}</>
             }
             {
                 more === ('3') &&
-                <Typography variant="h1">{item3}</Typography>
+                <>{item3}</>
             }
         </>
     )

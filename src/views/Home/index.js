@@ -6,7 +6,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
 import { Home } from '../../components/Icons/Home';
-import { Settings } from '../../components/Icons/Settings';
 
 
 import { SetView } from '../../components/SetView'
@@ -52,7 +51,7 @@ const Business = () => {
                     testing
                 </Typography>
                 <Card Heading1="Can you see me?!" />
-                <SetView setView1="First Item" setView2="Second Item" setView3="Third Item" item1="item 1" item2="item 2" item3="item 3" />
+                <SetView setView1="First Item" setView2="Second Item" setView3="Third Item" item1={<Card Heading1="Can you see me?!" />} item2="item 2" item3="item 3" />
             </Box>
             <Footer />
         </>
