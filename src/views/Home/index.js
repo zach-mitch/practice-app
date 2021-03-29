@@ -9,6 +9,7 @@ import { Home } from '../../components/Icons/Home';
 
 import { Header } from '../../components/Layout/Header'
 import { Footer } from '../../components/Layout/Footer'
+import Card from '../../components/Card'
 
 
 const useStyles = makeStyles(theme => ({
@@ -49,6 +50,7 @@ const Business = () => {
                 <Typography>
                     testing
                 </Typography>
+                <Card Heading1="Can you see me?!"/>
             </Box>
             <Footer />
         </>
