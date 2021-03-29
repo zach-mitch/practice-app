@@ -13,8 +13,7 @@ export const RepeatingSetView = ({ setView, setRepeat, item }) => {
                 <Button variant={more === { setRepeat } ? 'contained' : ''}
                     color={more === { setRepeat } ? 'primary' : ''} onClick={() => setMore({ setRepeat })}>{setView}</Button>
             </ButtonGroup>
-            {
-                more === ({ setRepeat }) &&
+            {more === ({ setRepeat }) &&
                 <>{item}</>
             }
         </>
