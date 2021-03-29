@@ -6,6 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
 import { Home } from '../../components/Icons/Home';
+import { Settings } from '../../components/Icons/Settings';
 
 
 import { SetView } from '../../components/SetView'
