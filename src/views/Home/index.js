@@ -6,6 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
 import { Home } from '../../components/Icons/Home';
+import { Settings } from '../../components/Icons/Settings';
 
 import { Header } from '../../components/Layout/Header'
 import { Footer } from '../../components/Layout/Footer'
@@ -50,6 +51,9 @@ const Business = () => {
                 <Typography>
                     testing
                 </Typography>
+                <IconButton >
+                    <Settings className={classes.icon}/>
+                </IconButton>
                 <Card Heading1="Can you see me?!"/>
             </Box>
             <Footer />
