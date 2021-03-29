@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 import IconButton from '@material-ui/core/IconButton';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -29,6 +30,7 @@ const useStyles = makeStyles(theme => ({
 const Business = () => {
     const classes = useStyles();
     const [view, setView] = useState('false');
+    const [more, setMore] = useState('1');
 
     return (
         <>
@@ -50,7 +52,21 @@ const Business = () => {
                 <Typography>
                     testing
                 </Typography>
-                <Card Heading1="Can you see me?!"/>
+                <Card Heading1="Can you see me?!" />
+                <ButtonGroup color="primary" aria-label="outlined primary button group">
+                    <Button onClick={() => setView('1')}>One</Button>
+                    <Button onClick={() => setView('2')}>Two</Button>
+                    <Button onClick={() => setView('3')}>Three</Button>
+                </ButtonGroup>
+                {view === ('1') &&
+                    <Typography variant="h1">View 1</Typography>
+                }
+                {view === ('2') &&
+                    <Typography variant="h1">View 2</Typography>
+                }
+                {view === ('3') &&
+                    <Typography variant="h1">View 3</Typography>
+                }
             </Box>
             <Footer />
         </>
