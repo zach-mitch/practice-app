@@ -12,7 +12,7 @@ import { SetView } from '../../components/SetView'
 import { RepeatingSetView } from '../../components/RepeatingSetView'
 import { Header } from '../../components/Layout/Header'
 import { Footer } from '../../components/Layout/Footer'
-import Card from '../../components/Card'
+import { Card } from '../../components/Card'
 
 
 const useStyles = makeStyles(theme => ({
