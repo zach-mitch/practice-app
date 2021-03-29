@@ -54,17 +54,20 @@ const Business = () => {
                 </Typography>
                 <Card Heading1="Can you see me?!" />
                 <ButtonGroup color="primary" aria-label="outlined primary button group">
-                    <Button onClick={() => setView('1')}>One</Button>
-                    <Button onClick={() => setView('2')}>Two</Button>
-                    <Button onClick={() => setView('3')}>Three</Button>
+                    <Button variant={more === '1' ? 'contained' : ''}
+                        color={more === '1' ? 'primary' : ''} onClick={() => setMore('1')}>One</Button>
+                    <Button variant={more === '2' ? 'contained' : ''}
+                        color={more === '2' ? 'primary' : ''} onClick={() => setMore('2')}>Two</Button>
+                    <Button variant={more === '3' ? 'contained' : ''}
+                        color={more === '3' ? 'primary' : ''} onClick={() => setMore('3')}>Three</Button>
                 </ButtonGroup>
-                {view === ('1') &&
+                {more === ('1') &&
                     <Typography variant="h1">View 1</Typography>
                 }
-                {view === ('2') &&
+                {more === ('2') &&
                     <Typography variant="h1">View 2</Typography>
                 }
-                {view === ('3') &&
+                {more === ('3') &&
                     <Typography variant="h1">View 3</Typography>
                 }
             </Box>
