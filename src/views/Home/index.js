@@ -11,7 +11,7 @@ import { Home } from '../../components/Icons/Home';
 import { SetView } from '../../components/SetView'
 import { RepeatingSetView } from '../../components/RepeatingSetView';
 import { Layout } from '../../components/Layout/';
-import Card from '../../components/Card'
+import { Card } from '../../components/Card'
 // import { RepeatingSetView } from '../../components/RepeatingSetView'
 // import { Card } from '../../components/Card'
 
