@@ -9,9 +9,8 @@ import { Home } from '../../components/Icons/Home';
 
 
 import { SetView } from '../../components/SetView'
-import { RepeatingSetView } from '../../components/RepeatingSetView'
-import { Header } from '../../components/Layout/Header'
-import { Footer } from '../../components/Layout/Footer'
+import { RepeatingSetView } from '../../components/RepeatingSetView';
+import { Layout } from '../../components/Layout/';
 import Card from '../../components/Card'
 
 
@@ -47,8 +46,7 @@ const Business = () => {
     const [view, setView] = useState('false');
 
     return (
-        <>
-            <Header />
+        <Layout>
             <Box justifyContent="center" className={classes.root} >
                 {view === ('false') &&
                     <IconButton onClick={() => setView('true')}><Home className={classes.icon} /></IconButton>
@@ -68,13 +66,12 @@ const Business = () => {
                 <SetView setView1="First Item" setView2="Second Item" setView3="Third Item" item1={<Card Heading1="Can you see me?!" />} item2="item 2" item3="item 3" />
                 {data.map((row) => (
                     <RepeatingSetView setView={row.name} setRepeat={row.number} item={<>
-                        <Typography> {row.items} </Typography>
+                        <Typography>{row.items}</Typography>
                     </>
                     } />
                 ))}
             </Box>
-            <Footer />
-        </>
+        </Layout>
     );
 }
 export default Business;
