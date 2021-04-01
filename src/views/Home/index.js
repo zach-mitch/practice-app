@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import { Link as RouterLink } from 'react-router-dom';
 import CloseIcon from '@material-ui/icons/Close';
 import { Home } from '../../components/Icons/Home';
 
@@ -27,7 +28,12 @@ const useStyles = makeStyles(theme => ({
     },
     icon: {
         color: theme.palette.secondary.main
+    },
+    button: {
+        display: 'grid',
+        placeItems: 'center',
     }
+    
 }));
 
 const item = (name, number, items) => {
@@ -64,6 +70,10 @@ const Business = () => {
                 <Typography>
                     testing
                 </Typography>
+                
+                <Box className={classes.button}>
+                    <Button color="secondary" variant="contained" component={RouterLink} to={`/mitch`}>Mitch</Button>
+                </Box>
                 <Card Heading1="Can you see me?!" />
                 <SetView setView1="First Item" setView2="Second Item" setView3="Third Item" item1={<Card Heading1="Can you see me?!" />} item2="item 2" item3="item 3" />
                 {data.map((row) => (
