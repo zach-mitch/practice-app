@@ -1,15 +1,16 @@
 
 // https://material.io/resources/color/
 export const color = {
-    darkBlue: '#10427F',
-    blue: '#2F76DF',
+    darkBlue: '#193856',
+    blue: '#04409B',
     lightBlue: '#F8FAFD',
     white: '#FFFFFF',
     black: '#000000',
-    backgroundGradient: 'linear-gradient(180deg, #F8FAFD 74.53%, #FFFFFF 107.98%) ',
-    backgroundGradient2: ' linear-gradient(180deg, #FFFFFF 0%, #F8FAFD 70%);',
     grey: '#606D7C',
-    green: '#18A56B'
+    green: '#1DA090',
+    lightGrey: '#E5E7EC',
+    red: '#AF0F3B',
+    yellow: '#FFDA1F'
 
 };
 
@@ -31,18 +32,23 @@ export default {
     },
     info: {
         main: color.black,
-    },
-    overlay: {
-        gradients: {
-            main: color.backgroundGradient,
-            contrast: color.backgroundGradient2,
-        },
+        contrastText: color.lightGrey
     },
     success: {
-        main: color.green
-    },
+        main: color.green,
+        contrastText: color.red,
+        primer: color.yellow,
 
+    },
+    greys: {
+        primer: '#A3ABB7',
+        cloud9: '#D1D3D8',
+        line7: '#E5E7EC',
+        cloud: '#F8FAFD',
+    },
     contrastThreshold: 3,
     tonalOffset: 0.2,
+
+
 
 }

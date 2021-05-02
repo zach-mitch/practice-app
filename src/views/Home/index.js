@@ -6,14 +6,18 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
 import { Home } from '../../components/Icons/Home';
-
-
+import Chip from '@material-ui/core/Chip';
+import clsx from 'clsx';
 import { SetView } from '../../components/SetView'
-import { RepeatingSetView } from '../../components/RepeatingSetView';
+// import { RepeatingSetView } from '../../components/RepeatingSetView';
 import { Layout } from '../../components/Layout/';
 import { Card } from '../../components/Card'
 // import { RepeatingSetView } from '../../components/RepeatingSetView'
 // import { Card } from '../../components/Card'
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 
 
 const useStyles = makeStyles(theme => ({
@@ -27,51 +31,104 @@ const useStyles = makeStyles(theme => ({
     },
     icon: {
         color: theme.palette.secondary.main
-    }
+    },
+    red: {
+        background: theme.palette.success.contrastText,
+        color: theme.palette.background.default,
+    },
+    green: {
+        background: theme.palette.success.main,
+        color: theme.palette.background.default,
+    },
+    yellow: {
+        background: theme.palette.success.primer,
+    },
 }));
 
-const item = (name, number, items) => {
-    return { name, number, items };
+const item = (name, number, plan) => {
+    return { name, number, plan };
 }
 
 const data = [
-    item('item1', 1, 'item1'),
-    item('item2', 2, 'item2'),
-    item('item 3', 3, 'item3'),
-    item('item 4', 4, 'item4'),
+    item('Zach', 1, 'Premium Plan'),
+    item('Mitch', 2, 'Starter Plan'),
+    item('Yixuan', 3, 'Premium Plan'),
+    item('Andrew', 4, 'Professional Plan'),
 ];
 
 
 
 const Business = () => {
     const classes = useStyles();
-    const [view, setView] = useState('false');
+    const [list, setList] = useState('default');
+    const [icon, setIcon] = useState('false');
+    const [anchorEl, setAnchorEl] = React.useState(null);
+
+    const openMenu = (event) => {
+        setAnchorEl(event.currentTarget);
+        setIcon('true')
+    };
+
+    const closeMenu = () => {
+        setAnchorEl(null)
+        setIcon('false')
+    };
+
+
+
 
     return (
         <Layout>
             <Box justifyContent="center" className={classes.root} >
-                {view === ('false') &&
-                    <IconButton onClick={() => setView('true')}><Home className={classes.icon} /></IconButton>
-                }
-                {view === ('true') &&
-                    <>
-                        <Button endIcon={
-                            <CloseIcon className={classes.icon} />
-                        } onClick={() => setView('false')}>Close</Button>
-                        <Typography variant="h1">Test</Typography>
-                    </>
-                }
                 <Typography>
-                    testing
+                    List
                 </Typography>
-                <Card Heading1="Can you see me?!" />
-                <SetView setView1="First Item" setView2="Second Item" setView3="Third Item" item1={<Card Heading1="Can you see me?!" />} item2="item 2" item3="item 3" />
+                <Box paddingBottom="1rem">
+                    <Button variant="outlined" color="secondary" onClick={openMenu}
+                        endIcon={<>
+                            {icon === ('false') && <ArrowDropDownIcon />}
+                            {icon === ('true') && <ArrowDropUpIcon />}
+                        </>} >
+                        {list === ('default') && 'Plan Type'}
+                        {list === ('starter') && 'Starter Plan'}
+                        {list === ('professional') && 'Professional Plan'}
+                        {list === ('premium') && 'Premium Plan'}
+
+                    </Button>
+                    <Menu
+                        id="simple-menu"
+                        anchorEl={anchorEl}
+                        keepMounted
+                        open={Boolean(anchorEl)}
+                        onClose={closeMenu}>
+                        <MenuItem disabled={true}>Plan Type</MenuItem>
+                        <MenuItem onClick={() => { setList('default'); closeMenu() }}>All</MenuItem>
+                        <MenuItem onClick={() => { setList('starter'); closeMenu() }}>Starter Plan</MenuItem>
+                        <MenuItem onClick={() => { setList('professional'); closeMenu() }}>Professional Plan</MenuItem>
+                        <MenuItem onClick={() => { setList('premium'); closeMenu() }}>Premium Plan</MenuItem>
+                    </Menu>
+                </Box>
                 {data.map((row) => (
-                    <RepeatingSetView setView={row.name} setRepeat={row.number} item={<>
-                        <Typography>{row.items}</Typography>
+                    <>
+                        {list === 'default' && <Box display="flex">
+                            <Box> <Typography>{row.name}</Typography></Box>
+                            <Chip className={clsx({ [classes.red]: row.plan === 'Starter Plan', [classes.yellow]: row.plan === 'Professional Plan', [classes.green]: row.plan === 'Premium Plan' })} label={row.plan} />
+                        </Box>}
+                        {row.plan === ('Starter Plan') && list === ('starter') && <Box display="flex">
+                            <Box> <Typography>{row.name}</Typography></Box>
+                            <Chip className={clsx({ [classes.red]: row.plan === 'Starter Plan', [classes.yellow]: row.plan === 'Professional Plan', [classes.green]: row.plan === 'Premium Plan' })} label={row.plan} />
+                        </Box>}
+                        {row.plan === ('Professional Plan') && list === ('professional') && <Box display="flex">
+                            <Box> <Typography>{row.name}</Typography></Box>
+                            <Chip className={clsx({ [classes.red]: row.plan === 'Starter Plan', [classes.yellow]: row.plan === 'Professional Plan', [classes.green]: row.plan === 'Premium Plan' })} label={row.plan} />
+                        </Box>}
+                        {row.plan === ('Premium Plan') && list === ('premium') && <Box display="flex">
+                            <Box> <Typography>{row.name}</Typography></Box>
+                            <Chip className={clsx({ [classes.red]: row.plan === 'Starter Plan', [classes.yellow]: row.plan === 'Professional Plan', [classes.green]: row.plan === 'Premium Plan' })} label={row.plan} />
+                        </Box>}
                     </>
-                    } />
                 ))}
+
             </Box>
         </Layout>
     );
