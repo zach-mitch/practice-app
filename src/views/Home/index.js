@@ -1,19 +1,14 @@
 import React, { useState } from 'react';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import CloseIcon from '@material-ui/icons/Close';
-import { Home } from '../../components/Icons/Home';
+
+
 import Chip from '@material-ui/core/Chip';
 import clsx from 'clsx';
-import { SetView } from '../../components/SetView'
-// import { RepeatingSetView } from '../../components/RepeatingSetView';
+
 import { Layout } from '../../components/Layout/';
-import { Card } from '../../components/Card'
-// import { RepeatingSetView } from '../../components/RepeatingSetView'
-// import { Card } from '../../components/Card'
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 import Menu from '@material-ui/core/Menu';
