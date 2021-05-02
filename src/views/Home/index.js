@@ -105,19 +105,19 @@ const Business = () => {
                 </Box>
                 {data.map((row) => (
                     <>
-                        {list === 'default' && <Box display="flex">
+                        {list === 'default' && <Box padding="0.25rem" display="flex">
                             <Box> <Typography>{row.name}</Typography></Box>
                             <Chip className={clsx({ [classes.red]: row.plan === 'Starter Plan', [classes.yellow]: row.plan === 'Professional Plan', [classes.green]: row.plan === 'Premium Plan' })} label={row.plan} />
                         </Box>}
-                        {row.plan === ('Starter Plan') && list === ('starter') && <Box display="flex">
+                        {row.plan === ('Starter Plan') && list === ('starter') && <Box padding="0.25rem" display="flex">
                             <Box> <Typography>{row.name}</Typography></Box>
                             <Chip className={clsx({ [classes.red]: row.plan === 'Starter Plan', [classes.yellow]: row.plan === 'Professional Plan', [classes.green]: row.plan === 'Premium Plan' })} label={row.plan} />
                         </Box>}
-                        {row.plan === ('Professional Plan') && list === ('professional') && <Box display="flex">
+                        {row.plan === ('Professional Plan') && list === ('professional') && <Box padding="0.25rem" display="flex">
                             <Box> <Typography>{row.name}</Typography></Box>
                             <Chip className={clsx({ [classes.red]: row.plan === 'Starter Plan', [classes.yellow]: row.plan === 'Professional Plan', [classes.green]: row.plan === 'Premium Plan' })} label={row.plan} />
                         </Box>}
-                        {row.plan === ('Premium Plan') && list === ('premium') && <Box display="flex">
+                        {row.plan === ('Premium Plan') && list === ('premium') && <Box padding="0.25rem" display="flex">
                             <Box> <Typography>{row.name}</Typography></Box>
                             <Chip className={clsx({ [classes.red]: row.plan === 'Starter Plan', [classes.yellow]: row.plan === 'Professional Plan', [classes.green]: row.plan === 'Premium Plan' })} label={row.plan} />
                         </Box>}
