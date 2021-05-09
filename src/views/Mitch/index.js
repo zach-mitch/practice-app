@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
     box: {
         display: 'grid',
         placeItems: 'center',
-        
+
 
     },
     boxpad: {
@@ -19,15 +19,15 @@ const useStyles = makeStyles(theme => ({
 
 }));
 
-const createClient = ( name, date, number, email) => {
+const createClient = (name, date, number, email) => {
     return { name, date, number, email };
 }
 
 
 const rows = [
-    createClient('Zachary Weston', '01/04/21', '0211822065', 'zachary@gmail.com' ),
-    createClient('Mitch Wilson', '01/04/21', '0211822065', 'mr.mitcholl@gmail.com' ),
-    createClient('James Clement', '01/04/21', '0211822065', 'james@gmail.com' )
+    createClient('Zachary Weston', '01/04/21', '0211822065', 'zachary@gmail.com'),
+    createClient('Mitch Wilson', '01/04/21', '0211822065', 'mr.mitcholl@gmail.com'),
+    createClient('James Clement', '01/04/21', '0211822065', 'james@gmail.com')
 
 ];
 
@@ -38,34 +38,34 @@ const client = [
 
 const Mitch = () => {
     const classes = useStyles();
-    return(
-        <Layout>
-            <Box className={classes.box}>
-                <Typography variant="h2">
-                    Mitch
+    return (
+
+        <Box className={classes.box}>
+            <Typography variant="h2">
+                Mitch
                 </Typography>
-                <LinkPanel className={classes.boxpad} dataType="row1" body={
+            <LinkPanel className={classes.boxpad} dataType="row1" body={
                 <>
                     {rows.map((row) => (
-                        <Cell key={row.name} Name={row.name} Date={row.date} Number={row.number} Email={row.email}/>
+                        <Cell key={row.name} Name={row.name} Date={row.date} Number={row.number} Email={row.email} />
                     ))}
                 </>
-                } />
-                <Grid >
+            } />
+            <Grid >
                 <LinkPanel dataType="row2" body={
-                <>
-                    {client.map((row) => (
-                        <Cell key={row.name} Name={row.name} Date={row.date} Number={row.number} Email={row.email}/>
-                    ))}
-                </>
+                    <>
+                        {client.map((row) => (
+                            <Cell key={row.name} Name={row.name} Date={row.date} Number={row.number} Email={row.email} />
+                        ))}
+                    </>
                 } />
 
-                </Grid>
-                
-                
-            </Box>
+            </Grid>
 
-        </Layout>
+
+        </Box>
+
+
 
     )
 }

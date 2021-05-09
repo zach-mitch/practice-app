@@ -50,8 +50,8 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const MenuItems = [
-    { label: 'Avid AML', link: 'https://www.avidaml.com/' },
-    { label: 'Application', link: 'https://app.avidaml.com/' },
+    { label: 'About', link: '/about' },
+    { label: 'Mitch', link: '/mitch' },
 ];
 
 

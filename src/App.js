@@ -5,10 +5,11 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
 import custom from './theme';
 import Skeleton from './components/WaitSkeleton';
-//import { Layout  from '../../components/Layout/';
+import { Layout } from './components/Layout/';
 
 const Home = lazy(() => import('./views/Home'));
 const Mitch = lazy(() => import('./views/Mitch'));
+const About = lazy(() => import('./views/About'))
 
 let theme = createMuiTheme(custom);
 theme = responsiveFontSizes(theme);
@@ -21,10 +22,13 @@ const App = () => {
       <CssBaseline />
       <Router>
         <Switch>
-          <Suspense fallback={<Skeleton variant="default" />}>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/mitch" component={Mitch} />
-          </Suspense>
+          <Layout>
+            <Suspense fallback={<Skeleton variant="default" />}>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/mitch" component={Mitch} />
+              <Route exact path="/about" component={About} />
+            </Suspense>
+          </Layout>
         </Switch>
       </Router>
     </ThemeProvider>
